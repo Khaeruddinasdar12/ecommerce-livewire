@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
+use DB;
 class Kernel extends ConsoleKernel
 {
     /**
@@ -38,6 +38,7 @@ class Kernel extends ConsoleKernel
                         $kurangi_stok->stok = $kurangi_stok->stok + $stok->jumlah;
                         $kurangi_stok->save();
                     }
+                    $delete = DB::table('transaksis')->where('id', $datas->id)->delete();
                     // $stok = \App\Riwayat::where('id_transaksi', $datas->id)
                     // ->update([
                     //     'status' => 'kosong',
@@ -45,7 +46,7 @@ class Kernel extends ConsoleKernel
 
                     // $delete = DB::table('transaksis')->where('id', $datas->id)->delete();
                 }
-                $data->delete();
+                // $data->delete();
         });
     }
 
