@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
         		'email' => 'khaeruddinasdar12@gmail.com',
         		'password' => bcrypt('12345678'),
         		'is_admin' => 1,
+                'id_alamat' => 87, //id kabupaten bone
         		'alamat' => 'Bone',
         		'phone' => '08234494950x'
         	];

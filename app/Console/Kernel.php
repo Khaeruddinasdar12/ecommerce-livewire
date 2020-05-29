@@ -25,6 +25,28 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->call(function(){
+            $data = DB::table('transaksis')
+                ->where('status', '!=', '2')
+                ->where('created_at', '<=', \Carbon\Carbon::now()->subMinutes(5)->toDateTimeString())
+                ->get();
+                
+                foreach ($data as $datas) {
+                    $stoks = \App\Riwayat::where('id_transaksi', $datas->id)->get();
+                    foreach($stoks as $stok) {
+                        $kurangi_stok = \App\Product::find($stok->id_product);
+                        $kurangi_stok->stok = $kurangi_stok->stok + $stok->jumlah;
+                        $kurangi_stok->save();
+                    }
+                    // $stok = \App\Riwayat::where('id_transaksi', $datas->id)
+                    // ->update([
+                    //     'status' => 'kosong',
+                    // ]);
+
+                    // $delete = DB::table('transaksis')->where('id', $datas->id)->delete();
+                }
+                $data->delete();
+        });
     }
 
     /**
