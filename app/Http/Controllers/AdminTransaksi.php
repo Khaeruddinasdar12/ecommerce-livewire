@@ -29,9 +29,8 @@ class AdminTransaksi extends Controller
 				->join('provinces', 'cities.province_id', '=', 'provinces.id')
 				->select('transaksis.id', 'transaksis.nama', 'transaksis.phone', 'transaksis.alamat_lengkap', 'transaksis.total', 'transaksis.ongkir', 'transaksis.service', 'transaksis.bukti', 'transaksis.kurir', 'transaksis.status', 'transaksis.created_at', 'transaksis.service', 'cities.type', 'cities.city_name', 'provinces.nama as provinsi')
 				->where('transaksis.id', $id)
-				->where('transaksis.user_id', \Auth::user()->id)
 				->first();
-
+        
 		$detail = DB::table('riwayats')
 			->leftJoin('products', 'riwayats.id_product', '=', 'products.id')
 			->select('riwayats.harga', 'riwayats.jumlah', 'riwayats.berat', 'products.nama')

@@ -58,6 +58,9 @@ Login {{config('app.name')}}
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
+                                <a class="btn btn-link" href="{{route('register')}}">
+                                        Daftar disini !
+                                    </a>
                                                             </div>
                         </div>
                     </form>

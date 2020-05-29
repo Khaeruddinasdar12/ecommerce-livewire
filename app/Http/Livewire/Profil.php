@@ -26,7 +26,12 @@ class Profil extends Component
     	$provinsi = Province::select('id', 'nama')->get();
     	$id_alamat = \Auth::user()->id_alamat;
     	
-    	$lokasi = DB::table('cities')
+    	if(\Auth::user()->id_alamat == '') {
+    	    $city = [];
+    	    $id_prov = null;
+    	    $id_kab = null;
+    	} else {
+    	    $lokasi = DB::table('cities')
     					->join('provinces', 'cities.province_id', '=', 'provinces.id')
     					->select('provinces.id as prov_id', 'cities.id as kab_id')
     					->where('cities.id', $id_alamat)
@@ -37,6 +42,8 @@ class Profil extends Component
     	$city = City::where('province_id', $id_prov)
     				->select('id', 'type', 'city_name')
     				->get();
+    	}
+    	
     	
         return view('livewire.profil', [
         	'provinsi' => $provinsi,  // semua provinsi
