@@ -12,8 +12,8 @@
 
    <form wire:submit.prevent="search" class="input-group col-md-5">
     <!-- <div class="input-group col-md-5"> -->
-  <input type="text" wire:model.lazy="search" class="form-control form-control-sm" placeholder="cari produk" value="{{$search}}">
-  <div class="input-group-append">
+  <input type="text" wire:model.lazy="search" class="form-control form-control-sm @error('search') is-invalid @enderror" placeholder="cari produk">
+  <div class="input-group-append is-invalid">
     <button class="btn btn-outline-secondary btn-sm" type="submit">cari</button>
   </div>
 </form>

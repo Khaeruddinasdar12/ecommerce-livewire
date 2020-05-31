@@ -2,26 +2,66 @@
 About
 @endsection
 <style type="text/css">
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+.map-responsive blockquote{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
 	@media (min-width: 1200px) {
     .container{
         max-width: 850px;
     }
+    
+    @media (min-width: 576px) {
+        .container{
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .map{
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
 }
 </style>
-<div class="container " style="min-height: 28rem !important;">
+
+<div class="container" style="min-height: 28rem !important;">
  
  <!-- membahas FAQ -->
+
  <h2 class="text-center">About</h2>
  <div id="faq"  style="height: 90px; content: ""; display:fixed;"></div>
  <h4>#FAQ ?</h4>
+ <div class="row">
+     <div class="col">
 <div id="accordion">
   <div class="card">
     <div class="card-header bg-white" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Bagaimana Metode Pembayaran ?
-        </button>
-      </h5>
+        <u>
+            <a class="card-link text-muted" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="cursor:pointer">
+              Bagaimana Metode Pembayaran ?
+            </a>
+        </u>
+     
     </div>
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
@@ -32,11 +72,11 @@ About
   </div>
   <div class="card">
     <div class="card-header bg-white" id="headingSix">
-      <h5 class="mb-0">
-        <button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+      <u>
+        <a class="card-link text-muted" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" style="cursor:pointer">
           Bagaimana alur transaksi di {{config('app.name')}} ?
-        </button>
-      </h5>
+        </a>
+      </u>
     </div>
 
     <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
@@ -56,11 +96,11 @@ About
   </div>
   <div class="card">
     <div class="card-header bg-white" id="headingFive">
-      <h5 class="mb-0">
-        <button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+      <u>
+        <a class="card-link text-muted" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="cursor:pointer">
           Apakah harus mengupload bukti pembayaran ?
-        </button>
-      </h5>
+        </a>
+      </u>
     </div>
 
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
@@ -71,11 +111,11 @@ About
   </div>
   <div class="card">
     <div class="card-header bg-white" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed text-muted" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      <u>
+        <a class="card-link collapsed text-muted" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="cursor:pointer">
           Apakah Ada Fitur Cek Ongkir ?
-        </button>
-      </h5>
+        </a>
+      </u>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
@@ -85,11 +125,11 @@ About
   </div>
   <div class="card">
     <div class="card-header bg-white" id="headingFour">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed text-muted" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+      <u>
+        <a class="card-link collapsed text-muted" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="cursor:pointer">
           Dimana Kota Asal Pengiriman ?
-        </button>
-      </h5>
+        </a>
+      </u>
     </div>
 
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
@@ -100,11 +140,11 @@ About
   </div>
   <div class="card">
     <div class="card-header bg-white" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link text-muted collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      <u>
+        <a class="card-link text-muted collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="cursor:pointer">
           Bagaimana cara melakukan Cek Ongkir ?
-        </button>
-      </h5>
+        </a>
+      </u>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
@@ -112,6 +152,8 @@ About
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
  <!-- End Membahas FAQ -->
 
@@ -127,8 +169,11 @@ About
       <p class="text-justify">Owner atau pemilik sekaligus pengelolah aplikasi toko online ini bernama Khaeruddin Asdar, Seorang mahasiswa Stmik Dipanegara Makassar semester 6 pada jurusan Teknik Informatika.</p>
    </div>
  </div>
+ <div class="row">
+ <div class="col-md-12">
  <blockquote class="twitter-tweet"><p lang="in" dir="ltr">Selamat Datang 🙂</p>&mdash; AsdarKoe (@AsdarKH) <a href="https://twitter.com/AsdarKH/status/1264518325612081152?ref_src=twsrc%5Etfw">May 24, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
- 
+ </div>
+ </div>
  <!-- <img src="{{asset('signin.svg')}}"> -->
 
 
@@ -139,7 +184,9 @@ About
  <div id="location" style="height: 90px"></div>
  <h4>#Location</h4>
  <p class="text-justify">Toko ini berada di Sulawesi Selatan, Kabupaten Bone, sehingga setiap transaksi dan cek ongkos pengiriman memiliki kota asal Kabupaten Bone.</p>
-<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=barebbo&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/en/">google map on web site</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+ <div class="map-responsive">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15908.260297696235!2d120.33870336889859!3d-4.58233871932145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbde6200a41eee1%3A0xbc65981ca9581679!2sJl.%20Poros%20Pattito%20Bajo%2C%20Talungeng%2C%20Barebbo%2C%20Kabupaten%20Bone%2C%20Sulawesi%20Selatan!5e0!3m2!1sid!2sid!4v1590768948921!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
 <!-- End Membahas Location -->
 
 </div>

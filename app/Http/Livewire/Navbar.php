@@ -32,6 +32,10 @@ class Navbar extends Component
 
     public function search()
     {
+        $this->validate([
+            'search' => 'required'
+        ]);
+        
         return redirect()->route('search', ['string' => $this->search]);
     }
 

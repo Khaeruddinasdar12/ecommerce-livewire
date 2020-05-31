@@ -1,7 +1,24 @@
 @section('title')
 Features
 @endsection
-<div class="container " style="min-height: 28rem !important; width: 70%">
+<style type="text/css">
+	@media (min-width: 1200px) {
+        .container{
+            max-width: 850px;
+        }
+    }
+
+    @media (min-width: 576px) {
+        .container{
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+</style>
+
+<div class="container " style="min-height: 28rem !important;">
  <!-- membahas Shopping Cart -->
  <h2 class="text-center">Features</h2>
  <div id="shopping-cart"  style="height: 90px; content: ""; display:fixed;"></div>

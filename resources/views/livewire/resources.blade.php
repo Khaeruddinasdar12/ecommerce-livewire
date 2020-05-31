@@ -1,7 +1,24 @@
 @section('title')
 Resources
 @endsection
-<div class="container " style="min-height: 28rem !important; width: 70%">
+<style type="text/css">
+	@media (min-width: 1200px) {
+        .container{
+            max-width: 850px;
+        }
+    }
+
+    @media (min-width: 576px) {
+        .container{
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+</style>
+
+<div class="container " style="min-height: 28rem !important;">
  
  <!-- membahas PHP -->
  <h2 class="text-center">Resources</h2>

@@ -28,6 +28,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){
             $data = DB::table('transaksis')
                 ->where('status', '!=', '2')
+                ->where('bukti', '!=', '')
                 ->where('created_at', '<=', \Carbon\Carbon::now()->subMinutes(5)->toDateTimeString())
                 ->get();
                 
