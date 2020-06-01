@@ -33,12 +33,11 @@ Route::get('/test', 'HomeController@test');
 
 Route::post('/keranjang', 'KeranjangStore@store')->name('keranjang.store'); //store pembelian
 Route::get('/checkout/{id}', 'KeranjangStore@checkout')->name('checkout'); // melihat detaill pembelian
-
-
+Route::get('detail-transaksi/{id}', 'KeranjangStore@detail')->name('detail-pembelian');//melihat detail transaksi atau pembelian
+Route::get('generate-pdf/{id}', 'PdfUser@generate')->name('pdf.user');//generate pdf
 //Keperluan jQuery AJAX
 Route::get('data-pembelian', 'KeranjangStore@data');//menampilkan data pembelian user 
 // Route::delete('data-pembelian/{id}', 'KeranjangStore@delete');//menghapus data pembelian user (softdelete)
-Route::get('detail-transaksi/{id}', 'KeranjangStore@detail')->name('detail-pembelian');
 Route::get('get-all-kabupaten/{id}', 'Lokasi@semua_kabupaten');//menentukan kabupaten 
 Route::put('update-jumlah/{id}', 'KeranjangHelper@updateJumlah')->name('update-jumlah');//mengupdate jumlah di keranjang
 Route::post('cek-ongkir', 'KeranjangHelper@cekOngkir')->name('cek-ongkir');//mengeck ongkos kirim
