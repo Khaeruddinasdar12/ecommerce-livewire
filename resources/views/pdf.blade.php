@@ -24,8 +24,8 @@
 </style>
 </head>
 <body>
-<div class="container" style="background-color: #f8f8ff; border-radius: 0.5%">
-    <br>
+<!--<div class="container" style="background-color: #f8f8ff; border-radius: 0.5%">-->
+    <!--<br>-->
     <div class="row">
         <div class="col-6">
             <div class="invoice-title">
@@ -46,11 +46,6 @@
                     <address>
                         <strong>Metode Pembayaran:</strong><br>
                         BRI 5221 8421 5007 0495 an. Khaeruddin Asdar
-                        @if($transaksi->status == 0)
-                        <br>
-                        <span class="text-danger">Lakukan pembayaran sesuai dengan nominal pada Total Pembayaran di bawah !</span><br>
-                        <span class="text-success">Transaksi akan dibatalkan secara otomatis jika tidak melakukan pembayaran selama 24 jam (untuk keperluan testing akan diatur menjadi 5 menit) !</span>
-                        @endif
                     </address>
                 </div>
                 <div class="col-6 text-right">
@@ -129,6 +124,6 @@
             </div>
         </div>
     </div>
-</div>
+<!--</div>-->
 </body>
 </html>

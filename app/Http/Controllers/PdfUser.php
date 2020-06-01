@@ -37,10 +37,10 @@ class PdfUser extends Controller
 				$total = $total + $details->harga ; //subtotal harga pembelian (diluar ongkir)
 			}
 
- 		// return view('pdf', ['detail' => $detail, 'transaksi' => $transaksi, 'subtotal' => $total]);
+//  		return view('pdf', ['detail' => $detail, 'transaksi' => $transaksi, 'subtotal' => $total]);
 
- 		$pdf = PDF::loadView('pdf', ['detail' => $detail, 'transaksi' => $transaksi, 'subtotal' => $total]);
+ 		$pdf = PDF::loadView('pdf', ['detail' => $detail, 'transaksi' => $transaksi, 'subtotal' => $total])->setPaper('a4', 'landscape');
         
-        return $pdf->download('transaksi.pdf');
+        return $pdf->stream(config('app.name').'.pdf');
 	}
 }
