@@ -33,7 +33,7 @@ Checkout {{config('app.name')}}
     		</div>
 		</div>
 		<div class="col-6">
-			<button class="btn btn-outline-danger btn-sm float-right" type="submit"><i class="nav-icon fas fa-file-pdf" ></i> Pdf</button>
+		    <a href="{{route('pdf.user',['id' => $transaksi->id])}}"><button class="btn btn-outline-danger btn-sm float-right" type="submit"><i class="nav-icon fas fa-file-pdf" ></i> Pdf</button></a>
 		</div>
 	</div>
     <div class="row">

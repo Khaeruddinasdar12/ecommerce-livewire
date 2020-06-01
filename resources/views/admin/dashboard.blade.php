@@ -15,7 +15,7 @@ Dashboard
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Sedang Transaksi</span>
+                <span class="info-box-text">Sedang Transaksi (Masih Example)</span>
                 <span class="info-box-number">
                   10
                   <small>%</small>
@@ -31,7 +31,7 @@ Dashboard
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-history"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Riwayat Transaksi</span>
+                <span class="info-box-text">Riwayat Transaksi (Masih Example)</span>
                 <span class="info-box-number">41,410</span>
               </div>
               <!-- /.info-box-content -->
