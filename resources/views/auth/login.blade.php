@@ -15,7 +15,7 @@ Login {{config('app.name')}}
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-white">Login Toko Asdar</div>
+                <div class="card-header bg-white">Login {{config('app.name')}}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{route('login')}}">

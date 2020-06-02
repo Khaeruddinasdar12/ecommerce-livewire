@@ -32,9 +32,9 @@ Detail Produk
                 <div class="card-body">
                 	<b>{{$detail->nama}}</b>
                   <p class="card-text">Rp. {{format_uang($detail->harga)}}</p>
-                  <p class="card-text"><span class="badge badge-pill badge-{{$stok}}">{{$message}} : {{$detail->stok}}</span></p>
+                  <p class="card-text"><span class="badge badge-{{$stok}}">{{$message}} : {{$detail->stok}}</span></p>
                   <div class="btn-group">
-                      <button type="button" wire:click="addToCart({{$detail->id}})" class="btn btn-sm btn-outline-success" title="Tambahkan ke keranjang" {{$disable}}><i class="nav-icon fas fa-shopping-cart"></i> Keranjang</button>
+                      <button type="button" wire:click="addToCart({{$detail->id}})" class="btn btn-sm btn-outline-dark" title="Tambahkan ke keranjang" {{$disable}}><i class="nav-icon fas fa-shopping-cart"></i> Keranjang</button>
                     </div>
                   <p class="card-text">{{$detail->detail}}</p>
                   <div class="d-flex justify-content-between align-items-center">

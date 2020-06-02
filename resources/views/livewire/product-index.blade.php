@@ -35,13 +35,13 @@ Produk
                 <div class="card-body">
                 	<b>{{$product->nama}}</b>
                   <p class="card-text">Rp. {{format_uang($product->harga)}}</p>
-                  <p class="card-text"><span class="badge badge-pill badge-{{$stok}}">{{$message}}</span></p>
+                  <p class="card-text"><span class="badge badge-{{$stok}}">{{$message}}</span></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       
 
-                      <a href="{{route('detail', ['id' => $product->id])}}" title="Lihat detail"><button type="button" class="btn btn-sm btn-outline-info"><i class="nav-icon fas fa-eye"></i> Detail</button></a>
-                      <button type="button" wire:click="addToCart({{$product->id}})" class="btn btn-sm btn-outline-success" title="Tambahkan ke keranjang" {{$disable}}><i class="nav-icon fas fa-shopping-cart"></i> Keranjang</button>
+                      <a href="{{route('detail', ['id' => $product->id])}}" title="Lihat detail"><button type="button" class="btn btn-sm btn-outline-dark"><i class="nav-icon fas fa-eye"></i> Detail</button></a>
+                      <button type="button" wire:click="addToCart({{$product->id}})" class="btn btn-sm btn-outline-dark" title="Tambahkan ke keranjang" {{$disable}}><i class="nav-icon fas fa-shopping-cart"></i> Keranjang</button>
                       
                     </div>
                   </div>

@@ -88,6 +88,9 @@
           </div>
         </div>
       </footer>
+      <div class="footer-copyright text-center py-3">© 2020 Copyright: Khaeruddin Asdar
+        <a href="#"> ecommerce.adepituedp.or.id</a>
+      </div>
     </div>
        <script src="{{asset('bootstrap/assets/js/vendor/popper.min.js') }}"></script>
 

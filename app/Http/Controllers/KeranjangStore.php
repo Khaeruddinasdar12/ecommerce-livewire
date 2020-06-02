@@ -153,9 +153,17 @@ class KeranjangStore extends Controller
 
 	public function checkout($id) // untuk menampilkan halaman setelah checkout
 	{
-		$transaksi = Transaksi::findOrFail($id);
-		if($transaksi->user_id != \Auth::user()->id) {
-			abort(403);
+// 		$transaksi = Transaksi::findOrFail($id);
+		$transaksi = DB::table('transaksis')
+				->join('cities', 'transaksis.id_alamat', '=', 'cities.id')
+				->join('provinces', 'cities.province_id', '=', 'provinces.id')
+				->select('transaksis.id', 'transaksis.nama', 'transaksis.phone', 'transaksis.alamat_lengkap', 'transaksis.total', 'transaksis.ongkir', 'transaksis.service', 'transaksis.bukti', 'transaksis.kurir', 'transaksis.status', 'transaksis.service', 'transaksis.created_at', 'cities.type', 'cities.city_name', 'provinces.nama as provinsi')
+				->where('transaksis.id', $id)
+				->where('transaksis.user_id', \Auth::user()->id)
+				->first();
+				
+		if(!$transaksi) {
+			abort(404);
 		}
 		$detail = DB::table('riwayats')
 			->leftJoin('products', 'riwayats.id_product', '=', 'products.id')

@@ -56,7 +56,7 @@ Checkout {{config('app.name')}}
         			<strong>Penerima:</strong><br>
     					{{$transaksi->nama}}<br>
     					{{$transaksi->phone}}<br>
-    					Sulawesi Selatan, Kabupaten Bone<br>
+    					Provinsi {{$transaksi->provinsi}}, {{$transaksi->type}} {{$transaksi->city_name}}<br>
     					{{$transaksi->alamat_lengkap}}
     				</address>
     			</div>
