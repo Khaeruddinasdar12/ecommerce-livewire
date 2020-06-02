@@ -44,11 +44,13 @@ Kebutuhan
     RAJA_ONGKIR_KEY=api_key_raja_ongkir(hasil_generate)
     </blockquote>
 8. lalu di cmd, masih mengakses folder project ketikkan perintah ```php artisan migrate:refresh --seed```
-9. kemudian ketikkan perintah ```php artisan serve```
-10. buka browser lalu akses ```localhost:8000```
-11. Anda akan secara otomatis memiliki akun yang bisa digunakan untuk login yaitu <blockquote>
+9. ketikkan perintah ```php artisan storage:link```
+10. ketiikan perintah ```php artisan key:generate```
+11. kemudian ketikkan perintah ```php artisan serve```
+12. buka browser lalu akses ```localhost:8000```
+13. Anda akan secara otomatis memiliki akun yang bisa digunakan untuk login yaitu <blockquote>
     email : khaeruddinasdar12@gmail.com<br>
     password : 12345678
     </blockquote>
-12. Done.
+14. Done.
 
