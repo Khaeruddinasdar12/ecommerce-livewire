@@ -81,17 +81,17 @@
           <div class="col-6 col-md">
             <a href="/about" class="text-dark"><h5>About</h5></a>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="/about#faq">FAQ ?</a></li>
               <li><a class="text-muted" href="/about#owner-writer">Owner-Writer</a></li>
               <li><a class="text-muted" href="/about#location">Location</a></li>
+              <li><a class="text-muted" href="/about#faq">FAQ ?</a></li>
             </ul>
           </div>
         </div>
       </footer>
-      <div class="footer-copyright text-center py-3">© 2020 Copyright: Khaeruddin Asdar
-        <a href="#"> ecommerce.adepituedp.or.id</a>
-      </div>
+      
     </div>
+    <div class="footer-copyright text-center py-3 bg-light">© 2020 Copyright 172296 Khaeruddin Asdar
+      </div>
        <script src="{{asset('bootstrap/assets/js/vendor/popper.min.js') }}"></script>
 
     @livewireScripts

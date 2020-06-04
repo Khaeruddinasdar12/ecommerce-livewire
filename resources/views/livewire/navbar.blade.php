@@ -21,9 +21,9 @@
 <!-- navbar kanan -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/products" ><i class="nav-icon fas fa-box-open"></i> Semua Product</a>
+        <a class="nav-link {{ Request::segment(1) === 'products' ? 'active' : null }}" href="/products" ><i class="nav-icon fas fa-box-open"></i> Semua Product</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown {{ (request()->is('product-kategori*')) ? 'active' : '' }}">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="nav-icon fas fa-tags"></i> Kategori
         </a>
@@ -34,14 +34,17 @@
         </div>
       </li>
       <li class="nav-item ">
-        <a class="nav-link active" href="/keranjang" ><i class="nav-icon fas fa-shopping-bag"></i> Keranjang ({{$cartTotal}})</a>
+        <a class="nav-link {{ Request::segment(1) === 'keranjang' ? 'active' : null }}" href="/keranjang" ><i class="nav-icon fas fa-shopping-bag"></i> Keranjang ({{$cartTotal}})</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link {{ Request::segment(1) === 'about' ? 'active' : null }}" href="/about" ><i class="nav-icon fas fa-info"></i> About</a>
       </li>
       &nbsp;&nbsp;&nbsp;&nbsp;
       @guest
       <a href="{{route('login')}}" ><button class="btn btn-outline-info" type="button">Login</button></a> &nbsp;&nbsp;
       <a href="{{route('register')}}" ><button class="btn btn-danger" type="button">Daftar</button></a>
     @else
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown {{ (request()->is('pembelian*')) || (request()->is('profil*')) ? 'active' : '' }}">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="nav-icon fas fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -73,4 +76,3 @@
   <!-- end navbar kanan -->
   </div>
 </div>
-
