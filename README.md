@@ -1,79 +1,56 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Informasi Aplikasi
+Aplikasi ini adalah aplikasi ecommerce sederhana menggunakan laravel7(php7), database MySQL. aplikasi ini sudah cukup stabil dan 70% SPA untuk user dan untuk admin masih menggunakan sistem biasa. setiap transaksi akan memiliki kota asal kabupaten Bone, Sulawesi Selatan, ini bisa di ganti.
+* Kelebihan
+    + 70% SPA, sehingga jarang terlihat reload browser saat proses
+    + memiliki keranjang belanja
+    + bisa CEK Ongkir
+    + memiliki auto cancel/pesanan akan otomatis di cancel oleh sistem jika tidak melakukan pembayaran (hanya dihostingan-cron job)
+    + generate pdf pada invoice/tagihan (stabil di hostingan)
+* Kekurangan
+    + Belum memiliki fitur laporan pada admin
+    + membutuhkan resource yang banyak
+    + metode pembayaran hanya transfer manual
 
-## About Laravel
+Aplikasi ini dibuat oleh Khaeruddin Asdar dan bersifat open source, source code bisa dilihat <a href="https://github.com/Khaeruddinasdar12/ecommerce-livewire">disini</a>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Instalasi (Localhost)
+Kebutuhan 
+* Xampp
+* Composer
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Download Aplikasi ini 
+2. Akses foldernya di cmd atau terminal lalu ketikkan(koneksi internet) <blockquote>composer install</blockquote> 
+3. ubah nama file <blockquote>.env.example</blockquote> Menjadi <blockquote>.env</blockquote>
+4. buat database di phpmyadmin, lalu buka file .env pada no. 3
+5. ubah <blockquote>
+    DB_DATABASE=laravel<br>
+    DB_USERNAME=root<br>
+    DB_PASSWORD=
+    </blockquote>
+    menjadi
+    <blockquote>
+    DB_DATABASE=nama_db_anda<br>
+    DB_USERNAME=nama_user_anda<br>
+    DB_PASSWORD=password_anda
+    </blockquote>
+6. selanjutnya Anda harus menggenerate api_key dari <a href="https://rajaongkir.com/">rajaongkir.com</a> (silakan cari caranya di om google)
+7. setelah melakukan point no. 6 ubah kembali file .env anda <blockquote>
+    RAJA_ONGKIR_KEY=
+    </blockquote>
+    menjadi
+    <blockquote>
+    RAJA_ONGKIR_KEY=api_key_raja_ongkir(hasil_generate)
+    </blockquote>
+8. lalu di cmd, masih mengakses folder project ketikkan perintah ```php artisan migrate:refresh --seed```
+9. ketikkan perintah ```php artisan storage:link```
+10. ketiikan perintah ```php artisan key:generate```
+11. kemudian ketikkan perintah ```php artisan serve```
+12. buka browser lalu akses ```localhost:8000```
+13. Anda akan secara otomatis memiliki akun yang bisa digunakan untuk login yaitu <blockquote>
+    email : khaeruddinasdar12@gmail.com<br>
+    password : 12345678
+    </blockquote>
+14. Done.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
