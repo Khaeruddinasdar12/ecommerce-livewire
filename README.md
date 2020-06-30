@@ -31,6 +31,7 @@ Kebutuhan
     </blockquote>
     menjadi
     <blockquote>
+    APP_NAME=nama_aplikasi_anda<br>
     DB_DATABASE=nama_db_anda<br>
     DB_USERNAME=nama_user_anda<br>
     DB_PASSWORD=password_anda
@@ -52,5 +53,6 @@ Kebutuhan
     email : khaeruddinasdar12@gmail.com<br>
     password : 12345678
     </blockquote>
-14. Done.
+14. Untuk halaman admin, silakan akses ```localhost:8000/admin``` dan login menggunakan akun diatas
+15. Done.
 

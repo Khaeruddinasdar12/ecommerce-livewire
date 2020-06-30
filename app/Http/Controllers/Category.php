@@ -27,14 +27,21 @@ class Category extends Controller
     public function store(Request $request)
     {
     	$validasi = $this->validate($request, [
-            'nama'      => 'required'
+            'nama'      => 'required',
+            'thumbnail'    => 'image|mimes:jpeg,png,jpg|max:3072'
         ],[
-            'nama.required'     => 'kolom nama tidak boleh kosong'
+            'nama.required'     => 'kolom nama tidak boleh kosong',
+            'thumbnail.image'      => 'thumbnail : harus format gambar'
             
         ]);
 
     	$data = new \App\Category();
     	$data->nama = $request->nama;
+        $gambar = $request->file('thumbnail');
+        if($gambar) {
+            $gambar_path = $gambar->store('gambar', 'public');
+            $data->thumbnail = $gambar_path;
+        }
     	$data->save();
 
     	return $arrayName = array('status' => 'success', 'pesan' => 'Berhasil Menambah Data');
@@ -50,6 +57,14 @@ class Category extends Controller
             
         ]);
     	$data = \App\Category::findOrFail($id);
+        $gambar = $request->file('thumbnail');
+        if($gambar) {
+            if($data->thumbnail && file_exists(storage_path('app/public/' . $data->thumbnail))) { 
+                \Storage::delete('public/'. $data->thumbnail);
+            }
+            $gambar_path = $gambar->store('gambar', 'public');
+            $data->thumbnail = $gambar_path;
+        }
     	$data->nama = $request->nama;
     	$data->save();
     	return $arrayName = array('status' => 'success', 'pesan' => 'Berhasil Mengubah Data');
@@ -62,7 +77,11 @@ class Category extends Controller
             return $arrayName = array('status' => 'error', 'pesan' => 'Gagal! Data ini terdapat di tabel lain');
         }
 
+        
     	$data = \App\Category::findOrFail($id);
+        if($data->thumbnail && file_exists(storage_path('app/public/' . $data->thumbnail))) { 
+                \Storage::delete('public/'. $data->thumbnail);
+            }
     	$data->delete();
     	return $arrayName = array('status' => 'success', 'pesan' => 'Berhasil Menghapus Data');
     }
