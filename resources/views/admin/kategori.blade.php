@@ -5,10 +5,39 @@ Manage Kategori
 @endsection
 
 @section('content')
+<script type="text/javascript">
+  function tampilkanPreview(gambar,idpreview){
+//                membuat objek gambar
+var gb = gambar.files;
+//                loop untuk merender gambar
+for (var i = 0; i < gb.length; i++){
+//                    bikin variabel
+var gbPreview = gb[i];
+var imageType = /image.*/;
+var preview=document.getElementById(idpreview);
+var reader = new FileReader();
+if (gbPreview.type.match(imageType)) {
+//                        jika tipe data sesuai
+preview.file = gbPreview;
+reader.onload = (function(element) {
+  return function(e) {
+    element.src = e.target.result;
+  };
+})(preview);
+    //                    membaca data URL gambar
+    reader.readAsDataURL(gbPreview);
+  }else{
+//                        jika tipe data tidak sesuai
+alert("Type file tidak sesuai. Khusus image.");
+}
+}
+}
+</script>
+
 <div class="container">
 <section class="content-header">
   <div class="row">
-          <div class="col-5">
+    <div class="col-5">
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Tambah Kategori</h3>
@@ -22,11 +51,27 @@ Manage Kategori
                     <label for="tipebus">Nama Kategori</label>
                     <div class="input-group mb-3">
                       <input type="text" class="form-control" name="nama" id="nama">
-                      <span class="input-group-append">
-                        <button type="submit" class="btn btn-outline-info"><i class="fas fa-plus"></i> Tambah</button>
-                      </span>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label for="exampleFormControlFile1">Gambar (max 3MB)</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile2" onchange="tampilkanPreview(this,'preview')" accept="image/*" name="thumbnail">
+                        <small>jpeg, jpg, png</small>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <label for="exampleFormControlFile1">Thumbnail Anda</label>
+                      <div class="form-group">
+                        <img id="preview" src="" alt="" width="120px">
+                      </div>
+                    </div>
+                  </div>
+                   <div class="form-group" style="margin-top: 45px;">
+                      <button type="reset" class="btn btn-sm btn-outline-secondary float-left"><i class="nav-icon fas fa-sync-alt"></i> Reset</button>
+                      <button type="submit" class="btn btn-sm btn-outline-primary float-right"><i class="nav-icon fas fa-save"></i> Tambah</button>
+              </div>
                 </form>
               </div>
               <!-- /.card-body -->
@@ -63,7 +108,7 @@ Manage Kategori
                     <tr>
                       <td>{{ $datas->nama }}</td>
                       <td>
-                            <button class="btn btn-outline-success btn-sm" title="Ubah" data-toggle="modal" data-target="#modal-edit" data-nama="{{$datas->nama}}" data-id="{{$datas->id}}"><i class="fas fa-pencil-alt"></i></button>
+                            <button class="btn btn-outline-success btn-sm" title="Ubah" data-toggle="modal" data-target="#modal-edit" data-nama="{{$datas->nama}}" data-id="{{$datas->id}}" data-thumbnail="{{asset('storage/'.$datas->thumbnail)}}"><i class="fas fa-pencil-alt"></i></button>
                             <button class="btn btn-outline-danger btn-sm" title="Hapus" onclick="hapus()" 
                              id="del_data" href="managemen-kategori/{{$datas->id}}"><i class="fas fa-trash"></i></button>
                       </td>
@@ -94,19 +139,35 @@ Manage Kategori
       </div>
       <div class="modal-body">
         <form id="edit-form">
-          @csrf
           <input type="hidden" id="kategori-id">
           <input type="hidden" name="_method" value="PUT">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Nama Kategori :</label>
-            <input type="text" class="form-control" id="edit-nama" name="nama">
-          </div>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="nav-icon fas fa-times"></i> Close</button>
-        <button type="submit" class="btn btn-primary"><i class="nav-icon fas fa-save"></i> Ubah</button>
-        </form>
+                  @csrf
+                  <div class="form-group">
+                    <label for="tipebus">Nama Kategori</label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" id="edit-nama" name="nama">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label for="exampleFormControlFile1">Gambar (max 3MB)</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile2" onchange="tampilkanPreview(this,'edit-preview')" accept="image/*" name="thumbnail">
+                        <small>jpeg, jpg, png</small>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <label for="exampleFormControlFile1">Thumbnail Anda</label>
+                      <div class="form-group">
+                        <img id="edit-preview" src="" alt="" width="120px">
+                      </div>
+                    </div>
+                  </div>
+                   <div class="form-group" style="margin-top: 45px;">
+                      <button type="reset" class="btn btn-sm btn-outline-secondary float-left"><i class="nav-icon fas fa-sync-alt"></i> Reset</button>
+                      <button type="submit" class="btn btn-sm btn-outline-primary float-right"><i class="nav-icon fas fa-save"></i> Tambah</button>
+              </div>
+                </form>
       </div>
     </div>
   </div>
@@ -160,9 +221,11 @@ $('#edit-form').submit(function(e) {
   var button = $(event.relatedTarget)
   var nama = button.data('nama')
   var id = button.data('id')
+  var thumbnail = button.data('thumbnail')
   var modal = $(this)
   modal.find('.modal-body #kategori-id').val(id)
   modal.find('.modal-body #edit-nama').val(nama)
+  modal.find('.modal-body #edit-preview').attr('src', thumbnail)
 })
   // end edit show kategori
 
