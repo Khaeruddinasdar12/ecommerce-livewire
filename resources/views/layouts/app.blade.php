@@ -95,6 +95,19 @@
 <div class="footer-copyright text-center py-3 bg-light">© 2020 Copyright 172296 Khaeruddin Asdar
 </div>
 <script src="{{asset('bootstrap/assets/js/vendor/popper.min.js') }}"></script>
+<script>
+  // navbar scroll
+  $(window).scroll(function () {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 50) {
+      $(".navbar").addClass("navbar-scroll");
+    } else {
+      $(".navbar").removeClass("navbar-scroll");
+    }
+  });
+// end navbar scroll
+</script>
 
 @livewireScripts
 @yield('js')

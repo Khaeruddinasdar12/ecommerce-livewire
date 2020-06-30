@@ -10,14 +10,16 @@
     <div class="content">
       <h1 class="display-4">TokoAsdar</h1>
       <h3>Selamat Datang ! Temukan berbagai macam kebutuhan Anda</h3>
-      <p class="lead">Kategori</p>
+      <p class="lead">Produk kami :</p>
       <div class="row">
         @foreach($kategori as $kategoris)
         <div class="col-md-2">
-          <!-- <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-          </div> -->
-          <a href="/product-kategori/{{$kategoris->nama}}" >{{$kategoris->nama}}</a>
+          <a href="/product-kategori/{{$kategoris->nama}}" >
+            <div class="card card-kategori">
+              <img src="{{asset('storage/'.$kategoris->thumbnail)}}" class="card-img-top" alt="{{$kategoris->nama}}">
+              <p class="kategori-nama">{{$kategoris->nama}}</p>
+            </div>
+          </a>
         </div>
         @endforeach
       </div>
