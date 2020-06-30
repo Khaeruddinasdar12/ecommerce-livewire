@@ -1,5 +1,3 @@
-
-
 body {
   padding-top: 5.5rem;
   height: 100%
@@ -33,4 +31,38 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/*jumbotron*/
+.jumbotron {
+  background-image: url("../jumbotron.jpg");
+  background-color: transparent;
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: 750px;
+  border-radius: none;
+  margin-top: -100px;
+  padding-left: 0 !important;
+  color: #fff;
+}
+
+.jumbotron::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    position: absolute;
+    bottom: 0;
+}
+
+
+.jumbotron .content {
+  margin-top: 200px;
+  position: relative;
+  z-index: 1;
+}
+
+.jumbotron .content h3 {
+  margin-bottom: 200px;
 }
