@@ -10,8 +10,10 @@ class Home extends Component
 {
     public function render()
     {
+        $kategori = \App\Category::get();
         return view('livewire.home',[
-        	'data' => Product::orderBy('created_at', 'desc')->limit(6)->get(),
+            'data' => Product::orderBy('created_at', 'desc')->limit(6)->get(),
+            'kategori' => $kategori
         ]);
     }
 
@@ -24,10 +26,10 @@ class Home extends Component
                 return redirect()->back();
             }
         }
-    	Cart::add(Product::where('id', $productId)->first());
+        Cart::add(Product::where('id', $productId)->first());
         $this->emit('cartAdded');
 
         session()->flash('success', 'Menambahkan ke keranjang');
-                return redirect()->back();
+        return redirect()->back();
     }
 }

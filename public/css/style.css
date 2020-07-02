@@ -1,9 +1,21 @@
-
-
 body {
   padding-top: 5.5rem;
   height: 100%
 }
+
+/*navbar*/
+.navbar {
+  transition      : .5s;
+}
+
+.navbar-scroll {
+  padding-top     : 10px;
+  padding-bottom  : 10px;
+  transition      : .5s;
+  background-color: #222;
+  box-shadow      : 0px 2px 16px rgba(8, 54, 204, 0.295);
+}
+/*navbar*/
 
 .form-signin {
   width: 100%;
@@ -33,4 +45,83 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/*jumbotron*/
+.jumbotron {
+  background-image: url("../jumbotron.jpg");
+  background-color: transparent;
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: 750px;
+  border-radius: none;
+  margin-top: -100px;
+  padding-left: 0 !important;
+  color: #fff;
+}
+
+.jumbotron::after,
+.card-kategori::after {
+  content: '' !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)) !important;
+  position: absolute !important;
+  bottom: 0 !important;
+}
+
+
+.jumbotron .content {
+  margin-top: 200px;
+  position: relative;
+  z-index: 1;
+}
+
+.jumbotron .content h3 {
+  margin-bottom: 100px;
+}
+
+.jumbotron .col-md-2 {
+  margin-right: 30px !important;
+}
+
+.jumbotron .card {
+  height: 150px !important;
+  width: 200px;
+  position: relative;
+  overflow-y: hidden !important;
+  margin-right: 900px !important;
+  overflow-x: hidden !important;
+}
+
+.jumbotron .card img {
+  -webkit-transform : scale(2);
+  transform         : scale(2);
+  transition: 1s;
+}
+
+.jumbotron .card .kategori-nama{
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  color: #fff;
+  padding-left: 20px;
+}
+
+.jumbotron .card:hover img {
+  -webkit-transform : scale(1.3);
+  transform         : scale(1.3);
+  transition: 1s;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    background: #222;
+  }
+
+  .jumbotron .lead,
+  .jumbotron .row {
+    display: none;
+  }
 }
