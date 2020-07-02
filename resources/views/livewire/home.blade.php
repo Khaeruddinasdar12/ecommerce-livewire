@@ -2,13 +2,14 @@
 {{config('app.name')}}
 @endsection
 
+<div>
 <div wire:loading class="loader" style="display: none" ></div>
 
 <!-- jumbotron -->
 <div class="jumbotron">
   <div class="container">
     <div class="content">
-      <h1 class="display-4">TokoAsdar</h1>
+      <h1 class="display-4">{{config('app.name')}}</h1>
       <h3>Selamat Datang ! Temukan berbagai macam kebutuhan Anda</h3>
       <p class="lead">Produk kami :</p>
       <div class="row">
@@ -16,7 +17,11 @@
         <div class="col-md-2">
           <a href="/product-kategori/{{$kategoris->nama}}" >
             <div class="card card-kategori">
+              @if($kategoris->thumbnail == '')
+              <img src="{{asset('thumbnail.jpg')}}" class="card-img-top">
+              @else
               <img src="{{asset('storage/'.$kategoris->thumbnail)}}" class="card-img-top" alt="{{$kategoris->nama}}">
+              @endif
               <p class="kategori-nama">{{$kategoris->nama}}</p>
             </div>
           </a>
@@ -74,4 +79,5 @@
     </div>
     @endforeach
   </div>
+</div>
 </div>
